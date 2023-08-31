@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# React Forms - using useForm hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this repository, I have my implementation of forms in react. I tried to make it generic with each type of input being implemented in a separate component. I've done styling with popular framework of bootstrap utilizing its grid structure.
 
-## Available Scripts
+## Components
 
-In the project directory, you can run:
+In the project directory, you will find:
 
-### `npm start`
+### `Input`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A basic component which have only label and input elements. You can pass type of input, id, name, your styling classes, label and constraints to apply on the field as props. This input component will take advantage of useFormContext from react-hook-form to register the input value to the form component.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Select`
 
-### `npm test`
+A basic component with label and select elements which can receive label, id, styling, constraints and options for select tag in the props.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Button`
 
-### `npm run build`
+A basic component which will receive type of button, value, styling and render a button on the DOM.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Column`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**I used bootstrap for implementing the grid structure!**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This component receives styling classes for the column div which will also specify the count of columns it will take out of the 12 available in a single row. Inside the column div, it just renders whatever is passed in the children of this component. It can be any element or event any other component.
 
-### `npm run eject`
+### `Row`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This component is used to render a single row in the DOM. It receives styling for the row div, and 2 arrays in props; one for the classes of styling for individual columns and the other one for the children of those columns to pass. This gives us leverage of defining how much columns we want in our row and what should be the size of each.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `App`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This is the main component where we will implement our form. I used the useForm hook of react and wrapped the form in FormProvider component which enables us to get the value of input fields from the nested components. You can define row components in the form and pass the fields to show on the row as children in an array.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is just the initial version of the idea. The project is open for anyone for contribution. Whether you're fixing bugs, improving documentation, or adding new features, your contributions are greatly appreciated. Together, let's create something amazing!
